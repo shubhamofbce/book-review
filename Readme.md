@@ -1,6 +1,7 @@
 # Book Review App
-
 This is a full-stack book review application built using Angular and Django.
+
+### The app is deployed on https://main.d29l4csx3ej31m.amplifyapp.com/
 
 ### Watch the demo video
 [![Watch the video](https://img.youtube.com/vi/3a9y276gNqM/0.jpg)](https://youtu.be/3a9y276gNqM)
@@ -74,6 +75,7 @@ Follow these steps to set up the backend locally.
     The backend server will start on `localhost:8005`.
 
 ## Frontend Setup
+Frontend is also deployed on https://main.d29l4csx3ej31m.amplifyapp.com/
 
 1. **Navigate to the frontend directory**:
     ```sh
