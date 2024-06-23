@@ -9,6 +9,8 @@ This is a full-stack book review application built using Angular and Django.
 3. **Submit Review**: Submit a review for a selected book.
 4. **View Reviews**: View all reviews submitted for any book.
 5. **Validation**: The review submission page includes validation to ensure data integrity.
+6. **Pagination**: You can use next and prev to change page on the list page
+7. **Sort**: You can sort the book list by title, author and average rating
 
 ## Getting Started
 
