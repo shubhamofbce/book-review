@@ -3,9 +3,8 @@
 This is a full-stack book review application built using Angular and Django.
 
 ### Watch the demo video
-<div align="center">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/3a9y276gNqM?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+[![Watch the video](https://img.youtube.com/vi/3a9y276gNqM/0.jpg)](https://youtu.be/3a9y276gNqM)
+
 
 ## Features
 
