@@ -16,7 +16,7 @@ interface ApiResponse {
 })
 export class ReviewService {
 
-  private apiUrl = 'http://localhost:8005'; // Replace with your API base URL
+  private apiUrl = 'https://book-review-production.up.railway.app'; // Replace with your API base URL
 
   constructor(private http: HttpClient) { }
 

@@ -10,9 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-import os
 from pathlib import Path
 import dj_database_url
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +20,7 @@ SECRET_KEY = 'django-insecure-=*)3w3y+ppzgh0uplm26@#1jdwtp-=&_opj8&c4+()d_$*2qmr
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -48,9 +48,18 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",  # Your Angular dev server
     "https://yourdomain.com",  # Your production domain
+    "https://book-review-production.up.railway.app"
+]
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'x-requested-with',
+    'Authorization',
 ]
 
 ROOT_URLCONF = 'book_review.urls'
@@ -78,9 +87,7 @@ WSGI_APPLICATION = 'book_review.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
-    )
+    'default': dj_database_url.parse('postgresql://postgres:OhHmWfGfyijTsmuzUSzOsweEOOnPfHgv@monorail.proxy.rlwy.net:46919/railway')
 }
 
 AUTH_PASSWORD_VALIDATORS = [

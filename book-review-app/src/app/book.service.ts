@@ -15,19 +15,27 @@ interface ApiResponse {
   providedIn: 'root'
 })
 export class BookService {
-  private apiUrl = 'http://0.0.0.0:8005/api/books';
+  private apiUrl = 'http://book-review-production.up.railway.app/api/books';
 
   constructor(private http: HttpClient) { }
-  getBooks(): Observable<any[]> {
-    return this.http.get<ApiResponse>(this.apiUrl).pipe(
+  getBooks(currentPage: number, sortCriteria: string = ''): Observable<any[]> {
+    const params: any = {
+      page: currentPage
+    };
+    if (sortCriteria) {
+      params['ordering'] = sortCriteria;
+    }
+    return this.http.get<ApiResponse>(this.apiUrl, {params}).pipe(
       map(response => response.results)
     );
   }
+
   getBookById(id: string): Observable<any> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<any>(url);
   }
-  searchBooks(criteria: string, query: string): Observable<any[]> {
+  
+  searchBooks(criteria: string, query: string): Observable<any[]> {  
     const url = `${this.apiUrl}/?${criteria}__icontains=${query}`;
     return this.http.get<ApiResponse>(url).pipe(
       map(response => response.results)

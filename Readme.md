@@ -14,30 +14,60 @@ This is a full-stack book review application built using Angular and Django.
 
 ### Prerequisites
 
-- Docker and Docker Compose
+- Python 3.11
 - Node.js (v20.x.x) and npm (v10.x.x)
 - Angular CLI (if not installed globally)
 
-### Backend Setup
+## Backend Setup
+The backend is already deployed on [Book Review Production](https://book-review-production.up.railway.app).
+So you don't need to run the backend to test the app. Frontend is already using the deployed api.
+You can also find all the APIs here at: [Postman Documentation](https://documenter.getpostman.com/view/9972670/2sA3XWdekH#d496b20a-ef50-4acb-be81-18aedc9fe024).
 
-1. **Navigate to the backend directory**:
+
+Follow these steps to set up the backend locally.
+
+### Prerequisites
+
+- Python 3.11
+
+### Setup Instructions
+
+1. **Install Python 3.11**:
+    Download and install Python 3.11 from the [official website](https://www.python.org/downloads/).
+
+2. **Create a Virtual Environment**:
     ```sh
-    cd book_review
+    python3.11 -m venv bookenv
     ```
 
-2. **Make the entrypoint file executable**:
+3. **Activate the Virtual Environment**:
+    - On Windows:
+        ```sh
+        bookenv\Scripts\activate
+        ```
+    - On macOS/Linux:
+        ```sh
+        source bookenv/bin/activate
+        ```
+
+4. **Install Requirements**:
     ```sh
-    chmod +x entrypoint.sh
+    pip install -r requirements.txt
     ```
 
-3. **Build and start the backend server using Docker Compose**:
+5. **Apply Migrations**:
     ```sh
-    docker-compose up --build
+    ./manage.py migrate app
     ```
 
-    The server will start on `localhost:8005`.
+6. **Run the Server**:
+    ```sh
+    ./manage.py runserver 0.0.0.0:8005
+    ```
 
-### Frontend Setup
+    The backend server will start on `localhost:8005`.
+
+## Frontend Setup
 
 1. **Navigate to the frontend directory**:
     ```sh
@@ -65,10 +95,6 @@ This is a full-stack book review application built using Angular and Django.
 
 ```
 book_review/           # Django backend project
-    ├── app/           # Main application code
-    ├── Dockerfile     # Docker configuration for the backend
-    ├── entrypoint.sh  # Entrypoint script for Docker
-    └── docker-compose.yml # Docker Compose configuration
 
 book-review-app/       # Angular frontend project
     ├── src/           # Main application code

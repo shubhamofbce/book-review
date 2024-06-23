@@ -14,6 +14,13 @@
             placeholder="Hit Enter to Search..." 
             class="search-input" 
             (keyup)="onSearch($event)">
+        
+            <select [(ngModel)]="sortCriteria" class="sort-select stylish-select" (change)="onSortChange($event)">
+                <option value="">Sort By</option>
+                <option value="title">Title</option>
+                <option value="author">Author</option>
+                <option value="-average_rating">Avg Rating</option>
+            </select>
     </div>
     <div class="book-grid">
         <div [routerLink]="['/book', book.id]" class="book-card" *ngFor="let book of books">
@@ -24,5 +31,9 @@
                 <p>{{ book.genre }}</p>
             </div>
         </div>
+    </div>
+    <div class="pagination-controls">
+        <button (click)="prevPage()" [disabled]="currentPage === 1">Prev</button>
+        <button (click)="nextPage()">Next</button>
     </div>
 </div>

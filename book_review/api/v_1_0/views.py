@@ -37,7 +37,7 @@ class BooksViewSet(viewsets.ModelViewSet):
     filter_backends = (filters.OrderingFilter, DjangoFilterBackend, filters.SearchFilter)
     filterset_class = BookFilter
     search_fields = ['name']
-    ordering_fields = ['created', 'updated', 'name', 'author']
+    ordering_fields = ['created', 'updated', 'title', 'author', 'average_rating']
     pagination_class = CustomPagination
     queryset = Book.objects.all()
 

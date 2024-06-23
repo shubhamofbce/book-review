@@ -15,12 +15,14 @@ import { FormsModule } from '@angular/forms';
 export class BookListComponent implements OnInit {
   books: any[] = [];
   searchCriteria: string = 'title'; 
+  currentPage: number = 1;
+  sortCriteria: string = '';
 
   constructor(private bookService: BookService) { 
   }
 
   ngOnInit(): void {
-    this.bookService.getBooks().subscribe(data => {
+    this.bookService.getBooks(this.currentPage).subscribe(data => {
       this.books = data;
       console.log(this.books);
     });
@@ -36,6 +38,26 @@ export class BookListComponent implements OnInit {
         this.books = data;
       });
     }
+  }
+
+  nextPage(): void {
+    this.currentPage++;
+    this.bookService.getBooks(this.currentPage, this.sortCriteria).subscribe(data => {
+      this.books = data;
+    });
+  }
+
+  prevPage(): void {
+    this.currentPage--;
+    this.bookService.getBooks(this.currentPage, this.sortCriteria).subscribe(data => {
+      this.books = data;
+    });
+  }
+
+  onSortChange(event: any) {
+    this.bookService.getBooks(this.currentPage, this.sortCriteria).subscribe(data => {
+      this.books = data;
+    });
   }
 
 }
