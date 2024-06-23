@@ -2,6 +2,9 @@
 
 This is a full-stack book review application built using Angular and Django.
 
+[![Watch the video](https://img.youtube.com/vi/3a9y276gNqM/0.jpg)](https://youtu.be/3a9y276gNqM)
+
+
 ## Features
 
 1. **List Books**: View a list of all available books.
